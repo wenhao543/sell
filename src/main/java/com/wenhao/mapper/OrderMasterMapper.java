@@ -12,4 +12,7 @@ public interface OrderMasterMapper extends BaseDaoMapper{
 
 	List<OrderMaster> selectByOpenId(@Param("buyerOpenid") String buyerOpenid,@Param("rowStart") int rowStart,@Param("rowNum")int rowNum);
 
+	List<OrderMaster> selectByOpenIdByPage(OrderMaster orderMaster);
+
+
 }

@@ -2,32 +2,67 @@ package com.wenhao.form;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import com.wenhao.enums.OrderStatusEnum;
 import com.wenhao.enums.PayStatusEnum;
 
-public class OrderMaster {
+public class OrderMaster extends BaseBean{
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 订单号
+	 */
     private String orderId;
-
+	/**
+	 *买家名称 
+	 */
     private String buyerName;
-
+    /**
+     * 买家联系方式
+     */
     private String buyerPhone;
-
+    /**
+     * 买家收货地址
+     */
     private String buyerAddress;
-
+    /**
+     * 买家openid
+     */
     private String buyerOpenid;
-
+    /**
+     * 交易金额
+     */
     private BigDecimal orderAmount;
-
+    /**
+     * 订单状态，默认“已下单”
+     */
     private Integer orderStatus = OrderStatusEnum.NEW.getCode();
-
+    /**
+     * 支付状态，默认“待支付”
+     */
     private Integer payStatus = PayStatusEnum.WAIT.getCode();
-
+	/**
+	 *创建时间 
+	 */
     private Date createTime;
-
+    /**
+     * 更新时间
+     */
     private Date updateTime;
+    /**
+     * 订单详情列表
+     */
+    private List<OrderDetail> orderDetailList;
 
-    public String getOrderId() {
+    public List<OrderDetail> getOrderDetailList() {
+		return orderDetailList;
+	}
+
+	public void setOrderDetailList(List<OrderDetail> orderDetailList) {
+		this.orderDetailList = orderDetailList;
+	}
+
+	public String getOrderId() {
         return orderId;
     }
 

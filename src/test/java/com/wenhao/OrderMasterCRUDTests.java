@@ -49,9 +49,17 @@ public class OrderMasterCRUDTests {
 	@Test
 	public void selectByOpenId(){
 		//limit,第一个参数表示起始下标，第二参数表示页面最大记录数
-		List<OrderMaster> orderMasterList = orderMasterMapper.selectByOpenId("oUFZVwkJstrNba__f8_otOnEszTY",2,2);
+		/*List<OrderMaster> orderMasterList = orderMasterMapper.selectByOpenId("oUFZVwkJstrNba__f8_otOnEszTY",2,2);
 		for(OrderMaster orderMaster:orderMasterList){
 			System.out.println(orderMaster.toString());
+		}*/
+		OrderMaster orderMaster = new OrderMaster();
+		orderMaster.setBuyerOpenid("oUFZVwkJstrNba__f8_otOnEszTY");
+		orderMaster.getPage().setCurrentPage(2);
+		orderMaster.getPage().setPageNumber(2);
+		List<OrderMaster> orderMasterList = orderMasterMapper.selectByOpenIdByPage(orderMaster);
+		for(OrderMaster item:orderMasterList){
+			System.out.println(item.toString());
 		}
 	}
 }
